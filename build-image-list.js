@@ -9,7 +9,7 @@ const files = readdirSync(dir);
 
 const htmlBuilder = () => {
     let filledTemplate = '';
-    let keyword = 'uluci';
+    let keyword = 'slojni_pokrivi';
     files.forEach((el, index) => {
         filledTemplate += `
         <div><a class="uk-inline" href="/${keyword}/${index}.jpg"><img style="border-radius: 6.25px; display: block; width: 350px; height: 200px" src="/${keyword}/${index}.jpg" draggable="false"></a></div>`;
