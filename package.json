@@ -5,7 +5,10 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "node index.js",
-		"test": "echo \"Error: no test specified\" && exit 1"
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"rename": "node rename.js terasi",
+		"optimize": "node imageoptimizer.js ./views/Images/bitumna_hidroizolaciq",
+		"build-image-list": "node build-image-list.js ./views/Images/terasi"
 	},
 	"author": "NA",
 	"license": "ISC",
@@ -14,6 +17,7 @@
 		"ejs": "^3.1.5",
 		"express": "^4.17.1",
 		"nodemailer": "^6.4.14",
-		"nodemon": "^2.0.6"
+		"nodemon": "^2.0.6",
+		"resize-optimize-images": "^1.1.2"
 	}
 }
