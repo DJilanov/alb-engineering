@@ -35,27 +35,27 @@ app.get('/contacts', (_, res) => {
 app.post('/send-message', (req, res) => {
 
 	let transporter = nodemailer.createTransport({
-		host: "",
-		port: 587,
-		secure: false,
+		service: 'gmail',
 		auth: {
-			user: Account.username,
-			pass: Account.password,
+			user: 'noreplyalbengineering@gmail.com',
+			pass: 'Sashowebsite'
 		}
 	});
 
 	let mailOptions = {
-		from: '"Nodemailer"' + `<${ req.body.Email }>`,
-		to: 'office@alb-engineering.com',
-		subject: "New Message From Client",
+		from: '"alb-engineering"' + `<${ req.body.Email }>`,
+		to: 'Aleksander.bozhinov@gmail.com',
+		// to: 'djilanov@gmail.com',
+		subject: `New Message From ${req.body.Name}`,
 		text: `${ req.body.Message }`
 	};
 
 	transporter.sendMail(mailOptions, (err, info) => {
 		if (err) {
+			res.redirect('/contacts?success=false');
 			return console.log(err);
 		}
 
-		res.redirect('/contacts');
+		res.redirect('/contacts?success=true');
 	});
 });

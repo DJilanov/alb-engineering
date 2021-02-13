@@ -168,9 +168,18 @@
 			</div>
 		</section>
 
-		<h3 style="text-align: center;">Свържете Се С Нас</h3>
+		<h3 style="text-align: center;">Свържете се с нас</h3>
 
 		<form method="POST" action="/send-message" class="uk-container uk-container-xsmall">
+
+			<div class="uk-margin" id="success" style="display: none;">
+				<div class="success" style="text-align: center; margin-bottom: 20px; background-color: lightgreen; padding-top: 10px; padding-bottom: 10px;">Успешно изпратихте вашето запитване!</div>
+			</div>
+
+			<div class="uk-margin" id="failure" style="display: none;">
+				<div class="failure" style="text-align: center; margin-bottom: 20px; background-color: rgb(255, 72, 72); color: white; padding-top: 10px; padding-bottom: 10px;">Изникна проблем с вашето запитване!</div>
+			</div>
+
 			<div class="uk-margin">
 				<label class="uk-form-label" for="form-stacked-text" style="font-size: 16px;">Име :</label>
 				<div class="uk-form-controls">
@@ -221,6 +230,16 @@
 
 		<button class="uk-button uk-button-primary" href="#TOP" uk-scroll style="display: block; margin: 0 auto 50px auto;">ВЪРНИ СЕ В НАЧАЛОТО</button>
 
+
+		<script>
+			if(location.href.split('?')[1].split('=')[1] === 'true') {
+				document.getElementById('success').style.display = 'block';
+			} else if(location.href.split('?')[1].split('=')[1] === 'false') {
+				document.getElementById('failure').style.display = 'block';
+			} else {
+				
+			}
+		</script>
 	</body>
 
 </html>
