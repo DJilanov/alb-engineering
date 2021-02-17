@@ -47,7 +47,11 @@ app.post('/send-message', (req, res) => {
 		to: 'Aleksander.bozhinov@gmail.com',
 		// to: 'djilanov@gmail.com',
 		subject: `New Message From ${req.body.Name}`,
-		text: `${ req.body.Message }`
+		text: `
+		Email: ${eq.body.Email}
+		Name: ${eq.body.Name}
+		Message: ${ req.body.Message }
+		`
 	};
 
 	transporter.sendMail(mailOptions, (err, info) => {
