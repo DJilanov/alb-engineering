@@ -48,8 +48,8 @@ app.post('/send-message', (req, res) => {
 		// to: 'djilanov@gmail.com',
 		subject: `New Message From ${req.body.Name}`,
 		text: `
-		Email: ${eq.body.Email}
-		Name: ${eq.body.Name}
+		Email: ${req.body.Email}
+		Name: ${req.body.Name}
 		Message: ${ req.body.Message }
 		`
 	};
