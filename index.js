@@ -2,7 +2,6 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const path = require ('path');
 const nodemailer = require('nodemailer');
-const SMTPServer = require("smtp-server").SMTPServer;
 
 const app = express();
 
@@ -68,12 +67,3 @@ app.post('/send-message', (req, res) => {
 		res.redirect('/contacts?success=true');
 	});
 });
-
-const server = new SMTPServer({
-	onData(stream, session, callback) {
-		console.log('INFORMATION INCOMING')
-		stream.pipe(process.stdout); // print message to console
-		stream.on("end", callback);
-	}
-});
-server.listen(465);
