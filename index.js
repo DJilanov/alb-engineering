@@ -2,6 +2,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const path = require ('path');
 const nodemailer = require('nodemailer');
+const SMTPServer = require("smtp-server").SMTPServer;
 
 const app = express();
 
@@ -30,6 +31,10 @@ app.get('/about', (_, res) => {
 
 app.get('/contacts', (_, res) => {
 	res.render('contacts');
+});
+
+app.get('/zohoverify/verifyforzoho.html', (_, res) => {
+	res.send('83844438');
 });
 
 app.post('/send-message', (req, res) => {
@@ -63,3 +68,12 @@ app.post('/send-message', (req, res) => {
 		res.redirect('/contacts?success=true');
 	});
 });
+
+const server = new SMTPServer({
+	onData(stream, session, callback) {
+		console.log('INFORMATION INCOMING')
+		stream.pipe(process.stdout); // print message to console
+		stream.on("end", callback);
+	}
+});
+server.listen(465);
