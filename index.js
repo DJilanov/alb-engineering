@@ -33,7 +33,9 @@ app.get('/contacts', (_, res) => {
 });
 
 app.get('/zohoverify/verifyforzoho.html', (_, res) => {
-	res.send('83844438');
+	res.writeHeader(200, {"Content-Type": "text/html"});  
+	res.write('83844438');  
+	res.end();  
 });
 
 app.post('/send-message', (req, res) => {
